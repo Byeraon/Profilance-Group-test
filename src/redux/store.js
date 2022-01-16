@@ -1,10 +1,9 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import { housesReducer, usersReducer } from "./reducer";
+import { createStore, combineReducers } from "redux";
+import { systemReducer, userReducer } from "./reducer";
 
 const rootReducer = combineReducers({
-  housesReducer: housesReducer,
-  usersReducer: usersReducer,
+  userReducer: userReducer,
+  systemReducer: systemReducer,
 });
 
-export const store = createStore(rootReducer, applyMiddleware(thunk));
+export const store = createStore(rootReducer);

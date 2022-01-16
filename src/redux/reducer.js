@@ -1,78 +1,49 @@
-import {
-  SET_FLAT,
-  SET_HOUSE,
-  SET_STREET,
-  SHOW_LOADER,
-  FETCH_USERS,
-  HIDE_LOADER,
-  CLEAR_USERS,
-  SET_USER,
-  SHOW_MODAL,
-  HIDE_MODAL
-} from "./actions";
+import { ACCEPT_NEW, REJECT_NEW, SET_USER } from "./actions";
+import { CLEAR_USER } from "./actions";
+import { SET_NEWS } from "./actions";
 
-const houseInitialState = {
-  flat: undefined,
-  house: undefined,
-  street: undefined,
-  loading: false,
+const userInitialState = false;
+
+const systemInitialState = {
+  new_current_id: 0,
+  news: [],
 };
 
-const usersInitialState = {
-  currentUser: {},
-  modals: {
-    deletePerson: false,
-    changePerson: false,
-    addPerson: false
-  },
-  users: []
-}
-
-export const usersReducer = (state = usersInitialState, action) => {
+export const userReducer = (state = userInitialState, action) => {
   switch (action.type) {
-    case SET_USER: return {...state, currentUser: action.payload}
-    case SHOW_MODAL: {
-      if (action.payload === 'deletePerson') {
-        return {...state, modals: {...state.modals, deletePerson: true}}
-      } else if (action.payload === 'changePerson') {
-        
-        return {...state, modals: {...state.modals, changePerson: true}}
-      } else if (action.payload === 'addPerson') {
-        return {...state, modals: {...state.modals, addPerson: true}}
-      }
-      break;
-    }
-    case HIDE_MODAL: {
-      if (action.payload === 'deletePerson') {
-        return {...state, modals: {...state.modals, deletePerson: false}}
-      } else if (action.payload === 'changePerson') {
-        return {...state, modals: {...state.modals, changePerson: false}}
-      } else if (action.payload === 'addPerson') {
-        return {...state, modals: {...state.modals, addPerson: false}}
-      }
-      break;
-    }
-    case FETCH_USERS:
-      return { ...state, users: action.payload };
-    case CLEAR_USERS:
-      return {...state, users: []}
+    case SET_USER:
+      return action.payload;
+    case CLEAR_USER:
+      return false;
     default:
       return state;
   }
-}
+};
 
-export const housesReducer = (state = houseInitialState, action) => {
+export const systemReducer = (state = systemInitialState, action) => {
   switch (action.type) {
-    case SET_FLAT:
-      return { ...state, flat: action.payload };
-    case SET_HOUSE:
-      return { ...state, house: action.payload };
-    case SET_STREET:
-      return { ...state, street: action.payload };
-    case SHOW_LOADER:
-      return { ...state, loading: true };
-    case HIDE_LOADER:
-      return { ...state, loading: false };
+    case SET_NEWS:
+      return {
+        ...state,
+        news: [...state.news, { ...action.payload, id: state.new_current_id }],
+        new_current_id: state.new_current_id + 1,
+      };
+    case REJECT_NEW:
+      return {
+        ...state,
+        news: state.news.filter((el) => el.id !== action.payload),
+      };
+    case ACCEPT_NEW:
+      return {
+        ...state,
+        news: state.news.map((el) => {
+          if (el.id === action.payload) {
+            return { ...el, assigned: true, date: new Date() };
+          } else {
+            return el;
+          }
+        }),
+      };
     default:
       return state;
   }

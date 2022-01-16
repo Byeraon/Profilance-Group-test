@@ -1,0 +1,12 @@
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.message {
+  color: #f44336;
+  font-size: 18px;
+}

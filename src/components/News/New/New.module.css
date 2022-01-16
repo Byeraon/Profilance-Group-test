@@ -1,0 +1,43 @@
+.new {
+  width: 42%;
+  overflow: hidden;
+  margin: 20px;
+  padding: 2%;
+  display: flex;
+  height: max-content;
+  box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  align-items: center;
+  flex-direction: column;
+}
+
+.new_name {
+  font-size: 20px;
+  white-space: normal;
+}
+
+.new_message {
+  font-size: 14px;
+  white-space: normal;
+}
+
+.new_buttons {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.new_buttons button {
+  width: 45%;
+}
+
+.new_buttons button:nth-child(2) {
+  background-color: #f44336;
+}
+
+.new_date {
+  font-size: 12px;
+  color: #cdcdcd;
+  margin-left: auto;
+}

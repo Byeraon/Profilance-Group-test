@@ -1,0 +1,49 @@
+.head {
+  width: calc(100% - 40px);
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.logo {
+  width: 300px;
+  cursor: pointer;
+}
+
+.head_leftblock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.link {
+  margin-left: 30px;
+  color: black;
+  position: relative;
+  text-decoration: none;
+}
+
+.link::before {
+  right: 0;
+  position: absolute;
+  content: "";
+  bottom: -3px;
+  background-color: #4caf50;
+  width: 0%;
+  transition: 400ms all;
+  height: 2px;
+}
+
+.link:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+.head_rightblock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
