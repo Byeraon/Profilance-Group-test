@@ -46,4 +46,30 @@
   align-items: center;
 }
 
+@media screen and (max-width: 560px) {
+  .logo {
+    width: 160px;
+  }
+  .link {
+    font-size: 14px;
+  }
+}
 
+@media screen and (max-width: 390px) {
+  .head {
+    width: calc(100% - 20px);
+    padding: 40px 10px;
+  }
+  .link {
+    margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .logo {
+    width: 140px;
+  }
+  .link {
+    margin-left: 10px;
+  }
+}

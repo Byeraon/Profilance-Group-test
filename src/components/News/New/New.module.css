@@ -1,7 +1,7 @@
 .new {
   width: 42%;
   overflow: hidden;
-  margin: 20px;
+  margin: 2%;
   padding: 2%;
   display: flex;
   height: max-content;
@@ -40,4 +40,10 @@
   font-size: 12px;
   color: #cdcdcd;
   margin-left: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .new {
+    width: 80%;
+  }
 }

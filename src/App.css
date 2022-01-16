@@ -46,3 +46,35 @@ textarea {
   width: 300px;
   height: 120px;
 }
+
+@media screen and (max-width: 560px) {
+  button {
+    padding: 7px 27px;
+  }
+  .content {
+    font-size: 24px;
+  }
+  input {
+    font-size: 18px;
+    height: 30px;
+    width: 90%;
+  }
+  textarea {
+    font-size: 18px;
+    width: 90%;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .cross {
+    width: 22px;
+    height: 22px;
+  }
+  .content {
+    font-size: 20px;
+  }
+  button {
+    padding: 7px 22px;
+  }
+}
